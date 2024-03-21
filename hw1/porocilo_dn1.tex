@@ -76,17 +76,15 @@
     Standardiziral sem napovedne spremenljivke. Nato sem si vizualiziral porazdelitev cene diamantov in izpisal 
     Pearsonov korelacijski koeficient med napovednimi in odvisno spremenljivko, da sem dobil idejo kateri podatki 
     so korelirani in kateri ne.
-    Nato sem izraisal grafe, ki prikazujejo odvisnoti napovednih in odvisne spremenljivke. To mi je potrdilo 
-    slutnjo iz prej"snjega koraka. Odločil sem se odstraniti npr. kvaliteto brusa, saj je iz grafa bilo razvidno, 
-    da pri različnih kvalitetath brusa, najdemo primere najdražjih in najcenejših diamantov. (Isti argument za ostale 
-    spremenljivke, ki sem jih odstranil). Poskusil sem ustvariti raznovrstne napovedne spremenljivke, npr. opazil
-    sem, da je odvisnost med stKaratov in ceno kvadratična in sem zato uvedel spremenljivko stKaratov$^2$, in se kaj drugega.
+    Nato sem izraisal grafe, ki prikazujejo odvisnoti napovednih in odvisne spremenljivke. Nisem ravno upo"steval grafov kategori"cnih spremenljivk, saj so nekoliko nesmiselni. Poskusil sem ustvariti raznovrstne napovedne spremenljivke, npr. opazil
+    sem, da je odvisnost med stKaratov in ceno kvadratična in sem zato uvedel spremenljivko stKaratov$^2$, in "se marsikaj drugega.
     Nič ni dobro vplivalo na končno natančnost modelov, zato sem odločil, da ne bom dodal drugih napovednih 
     spremenljivk (Kot primer sem pustil volumen diamantov).
-    Odstranil sem 'outlierje' iz podatkov, saj ti slabo vplivajo na splošnost modela. Končno sem s 
+    Odstranil sem 'outlierje' iz podatkov, saj ti slabo vplivajo na splošnost modela.
+    Kategori"cne spremenljivke sem spremenil v 'dummy variable'. Končno sem s 
     prečnim preverjanjem ocenil točnost knn regresijskega modela.
-    Optimalen $k$ je 12 in RMSE pri tem ka je približno 770, kar sicer ni zelo dober rezultat, ampak moji opisani poskusi
-    niso kaj dosti doprinesli k izboljšanju to"cnosti modela.
+    Optimalen $k$ je 4 in RMSE pri tem ka je približno 650, kar sicer ni zelo dober rezultat (prakti"cno gledano), ampak moji opisani poskusi
+    niso kaj dosti doprinesli k izboljšanju to"cnosti modela. $R^2$ je pribli"zno $0.984$, kar pomeni, da pojasnimo pribli"zno $98\%$ variabilnosti (Precej dober rezultat).
 \end{subsection}
 
 
