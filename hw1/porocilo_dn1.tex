@@ -11,9 +11,8 @@
 \begin{subsection}*{Naloga 1}
 
     \begin{subsubsection}*{a)}
-        Glede na to, da so podatki naklju"cni sem pri"cakoval, da bodo mogo"ce koeficienti bili 
-        decimalna stevila. Dobil pa sem dve celi "stevili in dve "stevili, ki sta prakti"cno $0$. Skratka 
-        model se je popolnoma prilegal podatkom, saj so bili simulirani z linearno funkcijo. 
+        Dobil sem dve celi "stevili in dve "stevili, ki sta prakti"cno $0$. Skratka 
+        model se je popolnoma prilegal podatkom, ker so bili simulirani z linearno funkcijo. 
         \newline
         Koeficienti: $[ 1,   5, -4.00027234\cdot 10^{-15}, \ -7.21644966\cdot10^{-16}]$
     \end{subsubsection}
@@ -21,7 +20,7 @@
     \begin{subsubsection}*{b)}
         Pri tem delu naloge sem samo dodal stolpec enic matriki $X$, saj glede na to da obravnavamo 
         podatke, ki so popolnoma linearno kolerirani med sabo, je to na"cin, da se bo napovedni model
-        popolnoma prilegal to"cnemu.
+        (skoraj) popolnoma prilegal to"cnemu.
     \end{subsubsection}
 
     \begin{subsubsection}*{d)}
@@ -34,17 +33,61 @@
 \begin{subsection}*{Naloga 2}
 
     \begin{subsubsection}*{a)}
-        Izri"sem nekaj standardnih statistik podatkov in jih normaliziram.
+        Izri"sem nekaj standardnih statistik podatkov in jih standardiziram, da so vrednosti med seboj 
+        bolj primerljive.
     \end{subsubsection}
 
     \begin{subsubsection}*{b)}
         To"cnosto modela ocenim s pomo"cjo pre"cnega preverjanja in izra"cunam 'accuracy score'.
-        Stabilnost ocenim 
+        Nastavim 'random seed' na $42$ za ponovljivost rezultatov. Model je stabilen, saj pri $10$-kratnem
+        prečnem preverjanju, 'accuracy score' ne preveč varira.
     \end{subsubsection}
 
+    \begin{subsubsection}*{c)}
+        Dodam spremenljivke, ki jih predlaga domenski ekspert in ponovno ocenim model s pomo"cjo 
+        pre"cnega preverjanja. Tokrat se 'accuracy score'pove"ca iz $0.959$ na $0.987$. Glede na 
+        koreliranost novih spremenljivk s starimi, sem posku"sal z odstranjevanjem starih spremenljivk, 
+        ampak izbolj"sanje je bilo zanemarjljivo oz. ga ni bilo.
+    \end{subsubsection}
 
+    \begin{subsubsection}*{d)}
+        Temu delu naloge sem se odlo"cil pristopiti na dva na"cina.
+        \begin{enumerate}
+            \item Pogledal sem absolutne vrednosti koeficientov po tem ko sem model ve"ckrat pognal in 
+            obdr"zal koeficiente, ki so bili ve"cji kot 1 (seveda konstante nisem upo"steval kot koeficient).
+            Tako sem obdr"zal le $4$ spremenljivke. Natan"cnost modela pa se prakti"cno ni spremenila, 
+            saj je "ze izhodi"s"cna bila visoka. 
+            \item Treniral sem modele kjer sem izvzel $i$-to spremenljivko in nato izra"cunal 'accuracy score' s 
+            s pre"cnim preverjanjem. Nato sem izrisal graf spremembe natan"cnosti modela glede na izvzeto spremenljivko.
+            Ni presenetljivo, da so na natan"cnost najbolj vpivale (skoraj vse) enake spremenljivke kot pri prvem pristopu. 
+            Zanimivo je, da je izvzetje 2. spremenljivke najbolj izbolj"salo oceno modela, saj je imel 
+            'accuracy score'nad $0.99$. 
+        \end{enumerate}
+
+        Na podlagi zgornjih pristopov lahko sklepamo, da so spremenljivke z indeksi 
+        $0, 1, 4, 9$ najbolj pomembne za model, saj izvezetje ostalih ne povzro"ci vpada v 
+        oceni modela oz. koeficient pred njimi so najvi"sji.
+    \end{subsubsection}
 \end{subsection}
 
+\begin{subsection}*{Naloga 3}
+    Nalgo sem za"cel s tem da sem odstranil spremenljivko 'zaporedna "stevilka diamanta v bazi', saj 
+    o"citno ni vsebinsko povezana z njegovo ceno (Če bi premešali podatke bi se vpliv popolnoma spremenil)
+    Standardiziral sem napovedne spremenljivke. Nato sem si vizualiziral porazdelitev cene diamantov in izpisal 
+    Pearsonov korelacijski koeficient med napovednimi in odvisno spremenljivko, da sem dobil idejo kateri podatki 
+    so korelirani in kateri ne.
+    Nato sem izraisal grafe, ki prikazujejo odvisnoti napovednih in odvisne spremenljivke. To mi je potrdilo 
+    slutnjo iz prej"snjega koraka. Odločil sem se odstraniti npr. kvaliteto brusa, saj je iz grafa bilo razvidno, 
+    da pri različnih kvalitetath brusa, najdemo primere najdražjih in najcenejših diamantov. (Isti argument za ostale 
+    spremenljivke, ki sem jih odstranil). Poskusil sem ustvariti raznovrstne napovedne spremenljivke, npr. opazil
+    sem, da je odvisnost med stKaratov in ceno kvadratična in sem zato uvedel spremenljivko stKaratov$^2$, in se kaj drugega.
+    Nič ni dobro vplivalo na končno natančnost modelov, zato sem odločil, da ne bom dodal drugih napovednih 
+    spremenljivk (Kot primer sem pustil volumen diamantov).
+    Odstranil sem 'outlierje' iz podatkov, saj ti slabo vplivajo na splošnost modela. Končno sem s 
+    prečnim preverjanjem ocenil točnost knn regresijskega modela.
+    Optimalen $k$ je 12 in RMSE pri tem ka je približno 770, kar sicer ni zelo dober rezultat, ampak moji opisani poskusi
+    niso kaj dosti doprinesli k izboljšanju to"cnosti modela.
+\end{subsection}
 
 
 \end{document}
