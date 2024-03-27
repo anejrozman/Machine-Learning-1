@@ -84,7 +84,10 @@
     Kategori"cne spremenljivke sem spremenil v 'dummy variable'. Končno sem s 
     prečnim preverjanjem ocenil točnost knn regresijskega modela.
     Optimalen $k$ je $3$ in RMSE pri tem ka je približno $630$, kar sicer ni zelo dober rezultat (prakti"cno gledano), ampak moji opisani poskusi
-    niso kaj dosti doprinesli k izboljšanju to"cnosti modela. $R^2$ je pribli"zno $0.986$, kar pomeni, da pojasnimo pribli"zno $98\%$ variabilnosti (Precej dober rezultat).
+    niso kaj dosti doprinesli k izboljšanju to"cnosti modela. Model je pa imel minimum 
+    variance napak pri $k=5$ in glede na to da se RMSE ne razlikuje veliko, bi bilo bolj smiselno vzeti
+    kot optimalen model s parametrom $k=5$. Vseeno sem izbral $k=3$ in dobil, da je
+    $R^2$ pribli"zno $0.986$, kar pomeni, da pojasnimo pribli"zno $98\%$ variabilnosti (Precej dober rezultat).
 \end{subsection}
 
 
